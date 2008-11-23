@@ -1,4 +1,5 @@
 [Setup]
+AllowNoIcons=yes
 AppId={{8BECBEE2-A1EF-4326-B1C6-8B4515E21916}
 AppName=Clojure Box
 AppVerName=Clojure Box r1109
@@ -9,7 +10,7 @@ AppPublisher=Clojure Box
 ChangesAssociations=yes
 DefaultDirName={pf}\Clojure Box
 DefaultGroupName=Clojure Box
-AllowNoIcons=yes
+InfoBeforeFile=README.txt
 OutputDir=C:\Documents and Settings\Shawn\Desktop\clojure-box-setup
 OutputBaseFilename=clojure-box-r1109-setup
 Compression=lzma
