@@ -26,7 +26,6 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Source: "C:\users\shawn\clojure\work\*"; Excludes: ".hg*,\classes"; DestDir: "{app}\clojure"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\users\shawn\clojure\mirror\clojure-contrib-mirror\*"; Excludes: ".hg*"; DestDir: "{app}\clojure-contrib"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\Program Files\Emacs\*"; Excludes: ".cvsignore,CVS,\unins*,\emacs\site-lisp\site-start.el"; DestDir: "{app}\emacs"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\users\shawn\action\clojure-box\clojure-box.bat"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Put our own site-start.el. We're not relying on the user's .emacs,
 ; so we need this to load clojure-mode and start the REPL.
@@ -38,6 +37,7 @@ Source: "C:\users\shawn\emacs\site-lisp\swank-clojure\*"; DestDir: "{app}\swank-
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
+Name: "{app}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n -a ""runemacs.exe -q --no-splash"""
 Name: "{group}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n -a ""runemacs.exe -q --no-splash"""
 Name: "{commondesktop}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n -a ""runemacs.exe -q --no-splash"""; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n -a ""runemacs.exe -q --no-splash"""; Tasks: quicklaunchicon
