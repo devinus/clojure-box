@@ -1,4 +1,4 @@
-;; ****** Added by emacsw32-setup-base at Thu Sep 18 22:19:28 2008
+;; This is from the EmacsW32 site-start.el.
 ;; Add EmacsW32/lisp to load-path if found.
 (let ((lisp-dir (expand-file-name (concat exec-directory "../../EmacsW32/lisp/"))))
   (unless (file-accessible-directory-p lisp-dir)
@@ -10,6 +10,9 @@
   (require 'emacsw32 nil t)
   (unless (featurep 'emacsw32)
     (lwarn '(emacsw32) :error "Could not find emacsw32.el")))
+
+
+;; Now we're in Clojure site-start territory.
 
 (setq inhibit-splash-screen t)
 
