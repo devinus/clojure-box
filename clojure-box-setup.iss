@@ -11,7 +11,7 @@ DefaultDirName={pf}\Clojure Box
 DefaultGroupName=Clojure Box
 AllowNoIcons=yes
 OutputDir=C:\Documents and Settings\Shawn\Desktop\clojure-box-setup
-OutputBaseFilename=setup
+OutputBaseFilename=clojure-box-r1109-setup
 Compression=lzma
 SolidCompression=yes
 
@@ -34,7 +34,9 @@ Source: "site-start.el"; DestDir: "{app}\emacs\site-lisp"; Flags: ignoreversion
 Source: "C:\users\shawn\emacs\site-lisp\clojure\*"; DestDir: "{app}\clojure-mode"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\users\shawn\emacs\site-lisp\slime-cvs\*"; DestDir: "{app}\slime-cvs"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\users\shawn\emacs\site-lisp\swank-clojure\*"; DestDir: "{app}\swank-clojure"; Flags: ignoreversion recursesubdirs createallsubdirs
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+Source: "clojure-box-setup.iss"; DestDir: "{app}"; Flags: ignoreversion
+Source: "README.txt"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{app}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n -a ""runemacs.exe -q --no-splash"""
