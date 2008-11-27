@@ -13,3 +13,8 @@ Execute any Emacs function by name: M-x (Alt+x)
 
 In the REPL you can use M-p and M-n to cycle up and down across previous
 expressions.
+
+To make your own jar files available to Clojure's import function, put them in
+the ~/.clojure directory. ~ is the application data directory under your user
+profile, unless you have set the HOME environment variable. (You'll have to
+restart the REPL to make new jars available if you've just dropped them in.)
