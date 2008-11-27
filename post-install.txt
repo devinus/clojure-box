@@ -1,7 +1,5 @@
-You're one step away from developing in Clojure!
-
 The first thing you'll see when you launch Clojure Box is the read-eval-print
-loop (REPL). Start typing Clojure expressions and you're on your way.
+loop (REPL). Start typing Clojure expressions and you're on your way!
 
 If you're new to Emacs, check out the built in tutorial by typing C-h t
 (Control+h and then t). Here are some of the most useful commands to get you
