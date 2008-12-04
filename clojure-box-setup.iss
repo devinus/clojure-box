@@ -46,6 +46,7 @@ Source: "post-install.txt"; DestDir: "{app}"; Flags: ignoreversion
 [Icons]
 Name: "{app}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"
 Name: "{group}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"
+Name: "{group}\Clojure REPL"; Filename: "java.exe"; Parameters: "-cp {app}\clojure\clojure.jar;{app}\clojure-contrib\clojure-contrib.jar clojure.main --repl"
 Name: "{commondesktop}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: quicklaunchicon
 
