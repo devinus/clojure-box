@@ -2,7 +2,7 @@
 AllowNoIcons=yes
 AppId={{8BECBEE2-A1EF-4326-B1C6-8B4515E21916}
 AppName=Clojure Box
-AppVerName=Clojure Box r1109.1
+AppVerName=Clojure Box r1142
 AppPublisher=Clojure Box
 AppPublisherURL=http://clojure.bighugh.com
 AppSupportURL=http://http://www.bitbucket.org/shoover/clojure-box
@@ -13,7 +13,7 @@ DefaultGroupName=Clojure Box
 InfoBeforeFile=README.rtf
 InfoAfterFile=post-install.txt
 OutputDir=C:\Documents and Settings\Shawn\Desktop\clojure-box-setup
-OutputBaseFilename=clojure-box-r1109-setup
+OutputBaseFilename=clojure-box-r1142-setup
 Compression=lzma
 SolidCompression=yes
 
@@ -46,7 +46,7 @@ Source: "post-install.txt"; DestDir: "{app}"; Flags: ignoreversion
 [Icons]
 Name: "{app}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"
 Name: "{group}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"
-Name: "{group}\Clojure REPL"; Filename: "java.exe"; Parameters: "-cp {app}\clojure\clojure.jar;{app}\clojure-contrib\clojure-contrib.jar clojure.main --repl"
+Name: "{group}\Clojure REPL"; Filename: "java.exe"; Parameters: "-cp ""{app}/clojure/clojure.jar;{app}/clojure-contrib/clojure-contrib.jar"" clojure.main --repl"
 Name: "{commondesktop}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: quicklaunchicon
 
