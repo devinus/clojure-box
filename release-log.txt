@@ -1,0 +1,32 @@
+r1142
+-----
+
+* Upgraded clojure et al.
+
+* Added a REPL shortcut.
+
+
+r1109.1
+-------
+
+* Fixed swank-clojure-extra-classpaths so swank can add jars from ~/.clojure
+  to the classpath.
+
+* Added post-install instructions with basic emacs tips.
+
+* Added attribution URLs to the installer README.
+
+* Changed post-install to run runemacs instead of emacsclientw in an attempt
+  to fix a reported hang.
+
+* Moved site-start.el to default.el per emacs recommendations (so user can
+  override by setting inhibit-default-init in .emacs.
+
+* Fixed inhibit-splash-screen by setting it in after-init-hook. Now all the
+  shortcuts don't have to set --no-splash all the time.
+
+
+r1109
+-----
+
+Initial release.
