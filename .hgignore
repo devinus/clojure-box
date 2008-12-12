@@ -3,3 +3,4 @@ syntax: glob
 *.exe
 *.~is
 *~
+web/index.html
