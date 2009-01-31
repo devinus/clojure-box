@@ -22,6 +22,12 @@
 (add-to-list 'load-path (concat clojure-home "swank-clojure/"))
 (require 'swank-clojure-autoload)
 (swank-clojure-config
+ ;; Provide clojure-indent-function in case we haven't opened a Clojure file
+ ;; yet
+ (require 'clojure-mode)
+
+ (slime-setup '(slime-repl))
+
  (setq swank-clojure-jar-path (concat clojure-home "clojure/clojure.jar"))
  (add-to-list 'swank-clojure-extra-classpaths
        (concat clojure-home "clojure-contrib/clojure-contrib.jar")))
