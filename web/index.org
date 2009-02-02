@@ -8,7 +8,7 @@
 Clojure Box is an all-in-one installer for [[http://clojure.org][Clojure]] on Windows.  It's inspired
 by the [[http://gigamonkeys.com/book/lispbox][Lispbox]]: you simply install and run this one thing, and you get a [[http://clojure.org/dynamic][REPL]]
 and all the syntax highlighting and editing goodies from clojure-mode and
-Slime, with all the power of Emacs under the hood.
+Slime, plus all the power of Emacs under the hood.
 
 * Requirements
 All you need is Java 1.5 or later. If Clojure Box can find java.exe on your
@@ -16,7 +16,8 @@ system (usually it's in c:\windows\system32), it provides the rest.
 
 
 * Download
-[[file:clojure-box-r1142-setup.exe][Latest Clojure Box setup]]
+[[file:clojure-box-r1235-setup.exe][Latest Clojure Box setup]], published February 1, 2009, matching Clojure svn
+r1235
 
 [[./previous][Older versions]]
 
