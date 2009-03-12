@@ -16,10 +16,15 @@ system (usually it's in c:\windows\system32), it provides the rest.
 
 
 * Download
-[[file:clojure-box-r1235-setup.exe][Latest Clojure Box setup]], published February 1, 2009, matching Clojure svn
-r1235
+[[file:clojure-box-r1327-setup.exe][Latest Clojure Box setup]], published March 11, 2009, matching Clojure svn
+r1327. This release contains [[http://clojure.org/lazier][lazier Clojure]], which removes lazy-cons and adds
+lazy-seq.
+
+[[file:previous/clojure-box-r1235-setup.exe][Last release before lazier Clojure]], published February 1, 2009, matching
+Clojure svn r1235
 
 [[./previous][Older versions]]
+
 
 * Components
 Clojure Box consists of these components:

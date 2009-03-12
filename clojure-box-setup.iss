@@ -2,7 +2,7 @@
 AllowNoIcons=yes
 AppId={{8BECBEE2-A1EF-4326-B1C6-8B4515E21916}
 AppName=Clojure Box
-AppVerName=Clojure Box r1235
+AppVerName=Clojure Box r1327
 AppPublisher=Clojure Box
 AppPublisherURL=http://clojure.bighugh.com
 AppSupportURL=http://http://www.bitbucket.org/shoover/clojure-box
@@ -13,7 +13,7 @@ DefaultGroupName=Clojure Box
 InfoBeforeFile=README.rtf
 InfoAfterFile=post-install.txt
 OutputDir=C:\Documents and Settings\Shawn\Desktop\clojure-box-setup
-OutputBaseFilename=clojure-box-r1235-setup
+OutputBaseFilename=clojure-box-r1327-setup
 Compression=lzma
 SolidCompression=yes
 
