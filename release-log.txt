@@ -1,3 +1,13 @@
+r1327.1
+-------
+
+* Fixed default.el to load clojure-mode instead of clojure-auto, which is no
+  longer part of clojure-mode.
+
+* Patched swank-clojure.el to fix slime-edit-definition to use
+  platform-agnostic separators.
+
+
 r1327
 -----
 

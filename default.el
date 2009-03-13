@@ -15,8 +15,7 @@
 ;; Set up clojure-mode
 (defvar clojure-home (concat (file-name-directory load-file-name) "../../"))
 (add-to-list 'load-path (concat clojure-home "clojure-mode/"))
-(require 'clojure-auto)
-;; Or (require 'clojure-paredit) and never type another closing paren!
+(require 'clojure-mode)
 
 ;; Start the REPL
 (add-to-list 'load-path (concat clojure-home "swank-clojure/"))
