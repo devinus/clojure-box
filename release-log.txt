@@ -4,8 +4,8 @@ r1327.1
 * Fixed default.el to load clojure-mode instead of clojure-auto, which is no
   longer part of clojure-mode.
 
-* Patched swank-clojure.el to fix slime-edit-definition to use
-  platform-agnostic separators.
+* Patched swank-clojure to fix slime-edit-definition to use platform-agnostic
+  separators.
 
 
 r1327
@@ -19,13 +19,16 @@ r1235
 
 * Upgraded components.
 
+* Patched swank-clojure so the REPL doesn't hang until the user presses enter
+  on XP.
+
 * Added repl startup hook to indent Clojure code.
 
 
 r1142
 -----
 
-* Upgraded clojure et al.
+* Upgraded components.
 
 * Added a REPL shortcut.
 
