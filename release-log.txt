@@ -1,3 +1,10 @@
+20090320
+--------
+
+* Built with the official 20090320 release from clojure.org. Contrib is from
+  source at svn r613. clojure-mode and swank-clojure have not been updated.
+
+
 r1327.1
 -------
 
