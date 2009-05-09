@@ -27,7 +27,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 [Files]
 ; Clojure and contrib from svn (my hg mirrors, really)
 Source: "C:\users\shawn\clojure\work\*"; Excludes: ".hg*,\classes"; DestDir: "{app}\clojure"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\users\shawn\clojure\mirror\clojure-contrib-mirror\*"; Excludes: ".hg*,\DLR_Main,bin,obj"; DestDir: "{app}\clojure-contrib"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\users\shawn\clojure\mirror\clojure-contrib-mirror\*"; Excludes: ".hg*,*.class,\DLR_Main,bin,obj"; DestDir: "{app}\clojure-contrib"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; Emacs from emacsw32 install
 Source: "c:\program files\emacs\*"; Excludes: ".cvsignore,CVS,\unins*"; DestDir: "{app}\emacs"; Flags: ignoreversion recursesubdirs createallsubdirs
