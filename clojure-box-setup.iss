@@ -42,6 +42,10 @@ Source: "default.el"; DestDir: "{app}\emacs\site-lisp"; Flags: ignoreversion
 Source: "dotemacs\site-lisp\clojure\*"; DestDir: "{app}\clojure-mode"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "dotemacs\site-lisp\slime-cvs\*"; DestDir: "{app}\slime-cvs"; Flags: ignoreversion recursesubdirs createallsubdirs
 
+; Including paredit as a convenience. Users still have to turn it on
+; as http://kyle-burton.tumblr.com/post/86984817/clojure-box-paredit
+Source: "dotemacs\site-lisp\paredit.el"; DestDir: "{app}\emacs\site-lisp"; Flags: ignoreversion
+
 ; swank-clojure from github/jochu with patches from
 ; http://bitbucket.org/shoover/clojure-box-swank-clojuremq/
 Source: "swank-clojure-hg\*"; Excludes: ".hg*"; DestDir: "{app}\swank-clojure"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -54,6 +58,8 @@ Source: "post-install.txt"; DestDir: "{app}"; Flags: ignoreversion
 Name: "{app}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"
 Name: "{group}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"
 Name: "{group}\Clojure REPL"; Filename: "java.exe"; Parameters: "-cp ""{app}/clojure/clojure.jar;{app}/clojure-contrib/clojure-contrib.jar"" clojure.main --repl"
+Name: "{group}\Clojure Box README"; Filename: "{app}\README.rtf"
+Name: "{group}\Clojure Box Post-install tips"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n --file ""{app}\post-install.txt"""
 Name: "{commondesktop}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: quicklaunchicon
 
