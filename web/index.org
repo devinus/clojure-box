@@ -10,6 +10,7 @@ by the [[http://gigamonkeys.com/book/lispbox][Lispbox]]: you simply install and 
 and all the syntax highlighting and editing goodies from clojure-mode and
 Slime, plus all the power of Emacs under the hood.
 
+
 * Requirements
 
 All you need is Java 1.5 or later. If Clojure Box can find java.exe on your
@@ -18,16 +19,14 @@ system (usually it's in c:\windows\system32), it provides the rest.
 
 * Download
 
+[[file:clojure-box-1.0-setup.exe][Clojure Box 1.0]], published May 9, 2009, built with the official Clojure
+1.0 release.
+
 [[file:clojure-box-20090320-setup.exe][Clojure Box 20090320]], published April 8, 2009, built with the official Clojure
 20090320 release.
 
-
-[[file:clojure-box-r1327-1-setup.exe][Clojure Box setup from source]], published March 11, 2009, matching Clojure svn
-r1327. This release contains [[http://clojure.org/lazier][lazier Clojure]], which removes lazy-cons and adds
-lazy-seq.
-
 [[file:previous/clojure-box-r1235-setup.exe][Last release before lazier Clojure]], published February 1, 2009, matching
-Clojure svn r1235
+Clojure svn r1235. This release contains lazy-cons and lazy-seq, which [[http://clojure.org/lazier][lazier Clojure]] removed.
 
 [[./previous][Older versions]]
 
@@ -42,13 +41,12 @@ Clojure Box consists of these components:
 - [[http://github.com/jochu/clojure-mode][clojure-mode]]
 - [[http://github.com/jochu/swank-clojure][swank-clojure]]
 - [[http://common-lisp.net/project/slime/][Slime]]
+- [[http://mumble.net/~campbell/emacs/paredit.el][Paredit]]
 
 Thanks to all the developers of these excellent packages!
 
 
 * Contact
 
-
 The Clojure Box installer is maintained by Shawn Hoover. I [[mailto:shawn@bighugh.com][welcome comments]]
-about the package. (And CSS contributions 
-for this page!)
+about the package. (And CSS contributions for this page!)
