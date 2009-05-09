@@ -59,7 +59,7 @@ Name: "{app}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; P
 Name: "{group}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"
 Name: "{group}\Clojure REPL"; Filename: "java.exe"; Parameters: "-cp ""{app}/clojure/clojure.jar;{app}/clojure-contrib/clojure-contrib.jar"" clojure.main --repl"
 Name: "{group}\Clojure Box README"; Filename: "{app}\README.rtf"
-Name: "{group}\Clojure Box Post-install tips"; Filename: """{app}\post-install.txt"""
+Name: "{group}\Clojure Box Post-install tips"; Filename: "{app}\post-install.txt"
 Name: "{commondesktop}\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\Clojure Box"; Filename: "{app}\emacs\emacs\bin\emacsclientw.exe"; Parameters: "-n"; Tasks: quicklaunchicon
 
