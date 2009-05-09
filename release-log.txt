@@ -5,13 +5,15 @@
   at svn r774. clojure-mode, swank-clojure, and slime are updated from git as
   of May 9, 2009.
 
-* Documented how to select a 64-bit JDK on Vista 64.
-
 * Added shortcuts to the README and post-install documents.
 
 * Included paredit.el. Users still have to activate it themselves.
 
 * Fixed README customization example for swank-clojure-extra-classpaths.
+
+* Fixed REPL shortcut to use the release clojure-X.jar.
+
+* Documented how to select a 64-bit JDK on Vista 64.
 
 
 20090320
