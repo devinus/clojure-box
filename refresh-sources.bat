@@ -1,12 +1,10 @@
-pushd
-
-cd c:\users\shawn\clojure\work
+pushd c:\users\shawn\clojure\work
 hg pull -u
-ant
+call ant
 
 cd c:\users\shawn\clojure\mirror\clojure-contrib-mirror
 hg pull -u
-ant
+call ant -Dclojure.jar=c:\users\shawn\clojure\work\clojure.jar
 
 popd
 
@@ -16,7 +14,7 @@ popd
 
 pushd swank-clojure-hg
 hg qpop -a
-hg branch default
+hg up -C default
 cd ..
 hg convert swank-clojure
 cd swank-clojure-hg
