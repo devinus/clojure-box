@@ -1,7 +1,3 @@
-;; Change to a directory that that has a chance of containing files the user
-;; cares about.
-(cd "~")
-
 ;; Keep the splash screen away from our REPL! You have to do it in this hook
 ;; because initialization sets it to nil after loading site-start and default.
 (add-hook 'after-init-hook
