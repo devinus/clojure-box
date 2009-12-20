@@ -2,7 +2,7 @@
 AllowNoIcons=yes
 AppId={{8BECBEE2-A1EF-4326-B1C6-8B4515E21916}
 AppName=Clojure Box
-AppVerName=Clojure Box 1.1RC1
+AppVerName=Clojure Box 1.1RC1-1
 AppPublisher=Clojure Box
 AppPublisherURL=http://clojure.bighugh.com
 AppSupportURL=http://http://www.bitbucket.org/shoover/clojure-box
