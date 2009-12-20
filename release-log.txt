@@ -1,3 +1,13 @@
+1.1RC1
+------
+
+* Built with the official 1.1RC1 release from clojure.org. Contrib is from
+  github source at be33acd8. clojure-mode, swank-clojure, and slime are from
+  github.com/technomancy as of December 19, 2009.
+
+* Updated EmacsW32, Emacs-23-CvsP091103-EmacsW32-1.58.exe.
+
+
 1.0
 ---
 
