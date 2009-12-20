@@ -9,23 +9,35 @@
 (iswitchb-mode 1)
 
 ;; Set up clojure-mode
-(defvar clojure-home (concat (file-name-directory load-file-name) "../../"))
-(add-to-list 'load-path (concat clojure-home "clojure-mode/"))
-(require 'clojure-mode)
+(let ((clojure-home (concat (file-name-directory load-file-name) "../../")))
+  ;; slime tries to access this even thought it shouldn't
+  (defvar package-activated-list nil)
 
-;; Start the REPL
-(add-to-list 'load-path (concat clojure-home "swank-clojure/"))
-(require 'swank-clojure-autoload)
-(swank-clojure-config
- ;; Provide clojure-indent-function in case we haven't opened a Clojure file
- ;; yet
- (require 'clojure-mode)
+  ;; swank-clojure assumes its autoloads run and define this before slime
+  ;; is loaded.
+  (defadvice slime-read-interactive-args (before add-clojure)
+    ;; Unfortunately we need to construct our Clojure-launching command
+    ;; at slime-launch time to reflect changes in the classpath. Slime
+    ;; has no mechanism to support this, so we must resort to advice.
+    (require 'assoc)
+    (aput 'slime-lisp-implementations 'clojure
+	  (list (swank-clojure-cmd) :init 'swank-clojure-init)))
 
- (slime-setup '(slime-repl))
+  (add-to-list 'load-path (concat clojure-home "slime-cvs/"))
+  (require 'slime)
+  (slime-setup '(slime-repl))
 
- (setq swank-clojure-jar-path (concat clojure-home "clojure/clojure.jar"))
- (add-to-list 'swank-clojure-extra-classpaths
-       (concat clojure-home "clojure-contrib/clojure-contrib.jar")))
-(add-to-list 'load-path (concat clojure-home "slime-cvs/"))
-(require 'slime)
-(slime)
+  (add-to-list 'load-path (concat clojure-home "clojure-mode/"))
+  (require 'clojure-mode)
+
+  (add-to-list 'load-path (concat clojure-home "swank-clojure/"))
+  (setq swank-clojure-jar-home (concat clojure-home "lib"))
+  (require 'swank-clojure)
+
+  ;; The user may setq this in ~/.emacs. By now it's either defined there
+  ;; or in the require call above, so it's safe to add.
+  (add-to-list 'swank-clojure-classpath
+	       (concat clojure-home "swank-clojure/src"))
+
+  ;; Start the REPL
+  (slime))

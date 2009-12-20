@@ -3,11 +3,14 @@ syntax: glob
 *.exe
 *.~is
 *~
+clojure
+clojure-1.1.0-rc1
+clojure-contrib
+clojure-mode
 emacs
-web/index.html
+slime
 swank-clojure
 swank-clojure-hg
 release
-
-
 test
+web/index.html
