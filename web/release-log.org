@@ -7,11 +7,18 @@
 #+STYLE: <link rel="stylesheet" type="text/css" href="styles.css" />
 #+LINK_HOME: index.html
 
-[[file:index.org][Clojure Box Home]]
+[[file:index.org][Clojure Box Home]] + [[file:releases][All Releases]]
 
-#+BEGIN_HTML Disable stock H1 title
+#+BEGIN_HTML Style overrides
 <style type="text/css">
+  /* hide the generated h1.title so I can put a link at the top
+     (and then I have to add a replacement title) */
   h1.title { display: none; }
+
+  /* override the cleaner front page style */
+  li {list-style-type:disc;}
+
+  h3 {margin:15px 0px 0px 0px;
 </style>
 
 <h1 style="text-align:center;">Clojure Box Release Notes</h1>
@@ -19,11 +26,16 @@
 
 ** 1.1RC1
 
-- Built with the official 1.1RC1 release from clojure.org. Contrib is from
+- Built with Clojure sources from the github 1.1.x branch. Contrib is from
   github source at be33acd8. clojure-mode, swank-clojure, and slime are from
   github.com/technomancy as of December 19, 2009.
 
 - Updated EmacsW32: Emacs-23-CvsP091103-EmacsW32-1.58.exe.
+
+- Patched swank-clojure:
+  - Prevent REPL hang on startup on XP (it would hang until the user pressed
+    Enter).
+  - Fix Find Definition to work with Windows pathnames.
 
 
 ** 1.0
@@ -42,11 +54,21 @@
 
 - Documented how to select a 64-bit JDK on Vista 64.
 
+- Patched swank-clojure:
+  - Prevent REPL hang on startup on XP (it would hang until the user pressed
+    Enter).
+  - Fix Find Definition to work with Windows pathnames.
+
 
 ** 20090320
 
 - Built with the official 20090320 release from clojure.org. Contrib is from
   source at svn r613. clojure-mode and swank-clojure have not been updated.
+
+- Patched swank-clojure:
+  - Prevent REPL hang on startup on XP (it would hang until the user pressed
+    Enter).
+  - Fix Find Definition to work with Windows pathnames.
 
 
 ** r1327.1
@@ -54,13 +76,18 @@
 - Fixed default.el to load clojure-mode instead of clojure-auto, which is no
   longer part of clojure-mode.
 
-- Patched swank-clojure to fix slime-edit-definition to use platform-agnostic
-  separators.
+- Patched swank-clojure:
+  - Prevent REPL hang on startup on XP (it would hang until the user pressed
+    Enter).
+  - Fix Find Definition to work with Windows pathnames.
 
 
 ** r1327
 
 - Upgraded components. This is lazier Clojure.
+
+- Patched swank-clojure so the REPL doesn't hang until the user presses enter
+  on XP.
 
 
 ** r1235

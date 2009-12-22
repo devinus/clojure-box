@@ -6,7 +6,7 @@ lang="en" xml:lang="en">
 <title>Clojure Box Release Notes</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2009-12-21 22:58:07 "/>
+<meta name="generated" content="2009-12-22 09:48:49 "/>
 <meta name="author" content="Shawn Hoover"/>
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
@@ -42,12 +42,19 @@ lang="en" xml:lang="en">
 </head><body>
 <h1 class="title">Clojure Box Release Notes</h1>
 
-<p><a href="index.html">Clojure Box Home</a>
+<p><a href="index.html">Clojure Box Home</a> + <a href="releases">All Releases</a>
 </p>
 
 
 <style type="text/css">
+  /* hide the generated h1.title so I can put a link at the top
+     (and then I have to add a replacement title) */
   h1.title { display: none; }
+
+  /* override the cleaner front page style */
+  li {list-style-type:disc;}
+
+  h3 {margin:15px 0px 0px 0px;
 </style>
 
 <h1 style="text-align:center;">Clojure Box Release Notes</h1>
@@ -60,7 +67,7 @@ lang="en" xml:lang="en">
 
 <ul>
 <li>
-Built with the official 1.1RC1 release from clojure.org. Contrib is from
+Built with Clojure sources from the github 1.1.x branch. Contrib is from
 github source at be33acd8. clojure-mode, swank-clojure, and slime are from
 github.com/technomancy as of December 19, 2009.
 
@@ -68,7 +75,20 @@ github.com/technomancy as of December 19, 2009.
 <li>
 Updated EmacsW32: Emacs-23-CvsP091103-EmacsW32-1.58.exe.
 
+</li>
+<li>
+Patched swank-clojure:
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
 
+
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -106,7 +126,20 @@ Fixed REPL shortcut to use the release clojure-X.jar.
 <li>
 Documented how to select a 64-bit JDK on Vista 64.
 
+</li>
+<li>
+Patched swank-clojure:
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
 
+
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -123,7 +156,20 @@ Documented how to select a 64-bit JDK on Vista 64.
 Built with the official 20090320 release from clojure.org. Contrib is from
 source at svn r613. clojure-mode and swank-clojure have not been updated.
 
+</li>
+<li>
+Patched swank-clojure:
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
 
+
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -142,10 +188,18 @@ longer part of clojure-mode.
 
 </li>
 <li>
-Patched swank-clojure to fix slime-edit-definition to use platform-agnostic
-separators.
+Patched swank-clojure:
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
 
 
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -160,6 +214,11 @@ separators.
 <ul>
 <li>
 Upgraded components. This is lazier Clojure.
+
+</li>
+<li>
+Patched swank-clojure so the REPL doesn't hang until the user presses enter
+on XP.
 
 
 </li>

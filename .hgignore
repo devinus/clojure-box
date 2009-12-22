@@ -8,10 +8,7 @@ clojure-1.1.0-rc1
 clojure-contrib
 clojure-mode
 emacs
-my-swank-clojure*
 slime
 swank-clojure
-swank-clojure-hg
 release
 test
-

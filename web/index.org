@@ -22,19 +22,19 @@ system (usually it's in c:\windows\system32), it provides the rest.
 
 Here's the box. See the [[file:release-log.org][release notes]] for more details.
 
-[[file:clojure-box-1.1RC1-setup.exe][BETA Clojure Box 1.1RC1]] published December 19, 2009, built from Clojure 1.1.x
+[[file:releases/clojure-box-1.1RC1-setup.exe][BETA Clojure Box 1.1RC1]] published December 19, 2009, built from Clojure 1.1.x
 sources.
 
-[[file:clojure-box-1.0-setup.exe][Clojure Box 1.0]], published May 9, 2009, built with the official Clojure
+[[file:releases/clojure-box-1.0-setup.exe][Clojure Box 1.0]], published May 9, 2009, built with the official Clojure
 1.0 release.
 
-[[file:clojure-box-20090320-setup.exe][Clojure Box 20090320]], published April 8, 2009, built with the official Clojure
+[[file:releases/clojure-box-20090320-setup.exe][Clojure Box 20090320]], published April 8, 2009, built with the official Clojure
 20090320 release.
 
-[[file:previous/clojure-box-r1235-setup.exe][Last release before lazier Clojure]], published February 1, 2009, matching
+[[file:releases/clojure-box-r1235-setup.exe][Last release before lazier Clojure]], published February 1, 2009, matching
 Clojure svn r1235. This release contains lazy-cons and lazy-seq, which [[http://clojure.org/lazier][lazier Clojure]] removed.
 
-[[./previous][Older versions]]
+[[./releases][Older versions]]
 
 
 * Components
@@ -70,4 +70,6 @@ try {
 var pageTracker = _gat._getTracker("UA-11886472-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
+
+<!-- styles.css thanks to Shane Eller -->
 #+END_HTML
