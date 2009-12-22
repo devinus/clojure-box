@@ -2,7 +2,7 @@
 AllowNoIcons=yes
 AppId={{8BECBEE2-A1EF-4326-B1C6-8B4515E21916}
 AppName=Clojure Box
-AppVerName=Clojure Box 1.1RC1-1
+AppVerName=Clojure Box 1.1RC1-2
 AppPublisher=Clojure Box
 AppPublisherURL=http://clojure.bighugh.com
 AppSupportURL=http://http://www.bitbucket.org/shoover/clojure-box
@@ -13,7 +13,7 @@ DefaultGroupName=Clojure Box
 InfoBeforeFile=README.rtf
 InfoAfterFile=post-install.txt
 OutputDir=C:\Documents and Settings\Shawn\Desktop\clojure-box-setup
-OutputBaseFilename=clojure-box-1.1RC1-1-setup
+OutputBaseFilename=clojure-box-1.1RC1-2-setup
 Compression=lzma
 SolidCompression=yes
 
@@ -46,8 +46,8 @@ Source: "default.el"; DestDir: "{app}\emacs\site-lisp"; Flags: ignoreversion
 
 ; clojure-mode, swank-clojure, and slime from github/technomancy.
 ; swank-clojure is hacked with a couple fixes for Windows
-Source: "clojure-mode\*"; DestDir: "{app}\clojure-mode"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "slime\*"; DestDir: "{app}\slime-cvs"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "clojure-mode\*"; Excludes: ".git*"; DestDir: "{app}\clojure-mode"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "slime\*"; Excludes: ".git*"; DestDir: "{app}\slime-cvs"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "swank-clojure\*"; Excludes: ".hg*,.git*"; DestDir: "{app}\swank-clojure"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; Including paredit as a convenience. Users still have to turn it on
