@@ -32,7 +32,7 @@
 
 - Updated EmacsW32: Emacs-23-CvsP091103-EmacsW32-1.58.exe.
 
-- Patched swank-clojure:
+- Patched swank-clojure ([[http://github.com/shoover/swank-clojure][patches]]):
   - Prevent REPL hang on startup on XP (it would hang until the user pressed
     Enter).
   - Fix Find Definition to work with Windows pathnames.
@@ -54,7 +54,7 @@
 
 - Documented how to select a 64-bit JDK on Vista 64.
 
-- Patched swank-clojure:
+- Patched swank-clojure ([[http://bitbucket.org/shoover/clojure-box-swank-clojuremq/][patches]]):
   - Prevent REPL hang on startup on XP (it would hang until the user pressed
     Enter).
   - Fix Find Definition to work with Windows pathnames.
@@ -65,7 +65,7 @@
 - Built with the official 20090320 release from clojure.org. Contrib is from
   source at svn r613. clojure-mode and swank-clojure have not been updated.
 
-- Patched swank-clojure:
+- Patched swank-clojure ([[http://bitbucket.org/shoover/clojure-box-swank-clojuremq/][patches]]):
   - Prevent REPL hang on startup on XP (it would hang until the user pressed
     Enter).
   - Fix Find Definition to work with Windows pathnames.
@@ -76,7 +76,7 @@
 - Fixed default.el to load clojure-mode instead of clojure-auto, which is no
   longer part of clojure-mode.
 
-- Patched swank-clojure:
+- Patched swank-clojure ([[http://bitbucket.org/shoover/clojure-box-swank-clojuremq/][patches]]):
   - Prevent REPL hang on startup on XP (it would hang until the user pressed
     Enter).
   - Fix Find Definition to work with Windows pathnames.
@@ -87,7 +87,7 @@
 - Upgraded components. This is lazier Clojure.
 
 - Patched swank-clojure so the REPL doesn't hang until the user presses enter
-  on XP.
+  on XP. ([[http://bitbucket.org/shoover/clojure-box-swank-clojuremq/][patch]])
 
 
 ** r1235
@@ -95,7 +95,7 @@
 - Upgraded components.
 
 - Patched swank-clojure so the REPL doesn't hang until the user presses enter
-  on XP.
+  on XP. ([[http://bitbucket.org/shoover/clojure-box-swank-clojuremq/][patch]])
 
 - Added repl startup hook to indent Clojure code.
 
