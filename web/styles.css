@@ -1,4 +1,8 @@
-body { margin: .5in 1in; font-size: 12pt; }
-p { line-height: 1.5; }
-h1, h2, h3, h4, h5, h6 { font-family: Georgia, Serif; }
-li { padding-top: 6pt; }
+* {margin:0px;padding:0px;}
+a {outline:none;color:#00628b;text-decoration:none;}
+body {margin:0 auto;width:80%;background-color:#e6e6dc;font-family:arial;font-size:12pt;}
+h1 {font-family:Verdana;margin:15px 0 10px 0;}
+h2 {font-family:Arial;margin:15px 15px 0 15px;font-size:1.2em;border-bottom:1px solid #81A594;}
+p {padding:5px 30px 10px 30px;}
+ul {margin:0 0 0 45px;}
+li {list-style-type:none;}

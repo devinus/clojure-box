@@ -1,0 +1,120 @@
+#+TITLE:     Clojure Box Release Notes
+#+AUTHOR:    Shawn Hoover
+#+EMAIL:     shawn@bighugh.com
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
+#+OPTIONS:   author:nil creator:nil timestamp:nil
+#+STYLE: <link rel="stylesheet" type="text/css" href="styles.css" />
+#+LINK_HOME: index.html
+
+[[file:index.org][Clojure Box Home]]
+
+#+BEGIN_HTML Disable stock H1 title
+<style type="text/css">
+  h1.title { display: none; }
+</style>
+
+<h1 style="text-align:center;">Clojure Box Release Notes</h1>
+#+END_HTML
+
+** 1.1RC1
+
+- Built with the official 1.1RC1 release from clojure.org. Contrib is from
+  github source at be33acd8. clojure-mode, swank-clojure, and slime are from
+  github.com/technomancy as of December 19, 2009.
+
+- Updated EmacsW32: Emacs-23-CvsP091103-EmacsW32-1.58.exe.
+
+
+** 1.0
+
+- Built with the official 1.0 release from clojure.org. Contrib is from source
+  at svn r774. clojure-mode, swank-clojure, and slime are updated from git as
+  of May 9, 2009.
+
+- Added shortcuts to the README and post-install documents.
+
+- Included paredit.el. Users still have to activate it themselves.
+
+- Fixed README customization example for swank-clojure-extra-classpaths.
+
+- Fixed REPL shortcut to use the release clojure-X.jar.
+
+- Documented how to select a 64-bit JDK on Vista 64.
+
+
+** 20090320
+
+- Built with the official 20090320 release from clojure.org. Contrib is from
+  source at svn r613. clojure-mode and swank-clojure have not been updated.
+
+
+** r1327.1
+
+- Fixed default.el to load clojure-mode instead of clojure-auto, which is no
+  longer part of clojure-mode.
+
+- Patched swank-clojure to fix slime-edit-definition to use platform-agnostic
+  separators.
+
+
+** r1327
+
+- Upgraded components. This is lazier Clojure.
+
+
+** r1235
+
+- Upgraded components.
+
+- Patched swank-clojure so the REPL doesn't hang until the user presses enter
+  on XP.
+
+- Added repl startup hook to indent Clojure code.
+
+
+** r1142
+
+- Upgraded components.
+
+- Added a REPL shortcut.
+
+
+** r1109.1
+
+- Fixed swank-clojure-extra-classpaths so swank can add jars from ~/.clojure
+  to the classpath.
+
+- Added post-install instructions with basic emacs tips.
+
+- Added attribution URLs to the installer README.
+
+- Changed post-install to run runemacs instead of emacsclientw in an attempt
+  to fix a reported hang.
+
+- Moved site-start.el to default.el per emacs recommendations (so user can
+  override by setting inhibit-default-init in .emacs.
+
+- Fixed inhibit-splash-screen by setting it in after-init-hook. Now all the
+  shortcuts don't have to set --no-splash all the time.
+
+
+** r1109
+
+Initial release.
+
+
+
+#+BEGIN_HTML Google Analytics
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
+"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11886472-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+#+END_HTML
