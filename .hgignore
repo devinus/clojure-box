@@ -4,7 +4,7 @@ syntax: glob
 *.~is
 *~
 clojure
-clojure-1.1.0-rc1
+clojure-1.1.0*
 clojure-contrib
 clojure-mode
 emacs

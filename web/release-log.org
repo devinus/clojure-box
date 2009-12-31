@@ -24,6 +24,15 @@
 <h1 style="text-align:center;">Clojure Box Release Notes</h1>
 #+END_HTML
 
+
+** 1.1.0
+
+- Same as 1.1RC1 but built with the official Clojure 1.1.0 download.
+
+- Updated default.el so swank-clojure-project can use the Clojure,
+  Contrib, and Swank included with Clojure Box.
+
+
 ** 1.1RC1
 
 - Built with the official Clojure 1.1RC1 download. Contrib is from github
@@ -36,6 +45,9 @@
   - Prevent REPL hang on startup on XP (it would hang until the user pressed
     Enter).
   - Fix Find Definition to work with Windows pathnames.
+
+- Patched slime-repl.el to not print "ChangeLog file not found" at the
+  top.
 
 
 ** 1.0

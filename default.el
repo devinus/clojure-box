@@ -39,5 +39,19 @@
   (add-to-list 'swank-clojure-classpath
 	       (concat clojure-home "swank-clojure/src"))
 
+  ;; swank-clojure-project expects every dependency to live under the
+  ;; project. Clojure Box users may not be up to speed with Leiningen
+  ;; so we append whatever the initial classpath was onto what
+  ;; swank-clojure-project thinks the classpath should be. Project
+  ;; jars and dirs come first, then initial swank-clojure-classpath
+  ;; stuff, so the project can always override the Clojure version or
+  ;; swank or anything else.
+  (defvar clojure-box-initial-classpath swank-clojure-classpath)
+  (add-hook 'swank-clojure-project-hook
+	    (lambda ()
+	      (setq swank-clojure-classpath
+		    (append swank-clojure-classpath
+			    clojure-box-initial-classpath))))
+
   ;; Start the REPL
   (slime))
