@@ -2,14 +2,21 @@ The first thing you'll see when you launch Clojure Box is the read-eval-print
 loop (REPL). Start typing Clojure expressions and you're on your way!
 
 If you're new to Emacs, check out the built in tutorial by typing C-h t
-(Control+h and then t). Here are some of the most useful commands to get you
-started:
+(Control+h and then t). Emacs has all kinds of commands. You can run any
+command by typing M-x (Alt-x) and typing the name. Here are some of the most
+useful commands to get you started:
 
 Open a file (find-file is the Emacs function): C-x C-f
 Save a file (save-buffer): C-x C-s
 Switch to another open buffer (iswitchb): C-x b
 Close Emacs (kill-emacs): C-x C-c
-Execute any Emacs function by name: M-x (Alt+x)
+Keyboard help: C-h k
 
 In the REPL you can use M-p and M-n to cycle up and down across previous
 expressions.
+
+Once you start typing code in .clj files instead of the REPL, you'll want to
+evaluate code in the REPL from the files' buffers. Have a look at the Slime
+menu or check the keyboard help for C-x C-e, C-M-x, and C-c C-l. You can
+quickly switch to the REPL buffer with C-c C-z. Be sure to check out M-. to
+jump to the source definition of the symbol under the cursor!

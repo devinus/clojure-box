@@ -25,6 +25,13 @@
 #+END_HTML
 
 
+** 1.1.0-1
+
+- Updated clojure.contrib.jar with the same version but this time compiled.
+
+- Added some Slime shortcuts to the post-install help text.
+
+
 ** 1.1.0
 
 - Same components as 1.1RC1 but built with the official Clojure 1.1.0
