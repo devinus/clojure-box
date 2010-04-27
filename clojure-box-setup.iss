@@ -2,7 +2,7 @@
 AllowNoIcons=yes
 AppId={{8BECBEE2-A1EF-4326-B1C6-8B4515E21916}
 AppName=Clojure Box
-AppVerName=Clojure Box 1.1RC1-2
+AppVerName=Clojure Box 1.1.0-1
 AppPublisher=Clojure Box
 AppPublisherURL=http://clojure.bighugh.com
 AppSupportURL=http://http://www.bitbucket.org/shoover/clojure-box
@@ -13,7 +13,7 @@ DefaultGroupName=Clojure Box
 InfoBeforeFile=README.rtf
 InfoAfterFile=post-install.txt
 OutputDir=C:\Documents and Settings\Shawn\Desktop\clojure-box-setup
-OutputBaseFilename=clojure-box-1.1RC1-2-setup
+OutputBaseFilename=clojure-box-1.1.0-1-setup
 Compression=lzma
 SolidCompression=yes
 
@@ -26,13 +26,13 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 ; Clojure from the official download zip
-Source: "clojure-1.1.0-rc1\*"; Excludes: ".git*,\classes,*.jar"; DestDir: "{app}\clojure"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "clojure-1.1.0\*"; Excludes: ".git*,\classes,*.jar"; DestDir: "{app}\clojure"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; contrib from github/richhickey
 Source: "clojure-contrib\*"; Excludes: ".git*,*.class,*.jar,\DLR_Main,bin,obj"; DestDir: "{app}\clojure-contrib"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; jars need to be in a dir for swank-clojure-jar-home
-Source: "clojure-1.1.0-rc1\clojure.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
+Source: "clojure-1.1.0\clojure.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
 Source: "clojure-contrib\clojure-contrib.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
 
 ; Emacs from emacsw32 install

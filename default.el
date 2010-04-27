@@ -30,12 +30,34 @@
   (add-to-list 'load-path (concat clojure-home "clojure-mode/"))
   (require 'clojure-mode)
 
+  ;; swank-clojure-project expects every dependency to live under the
+  ;; project. Clojure Box users may not be up to speed with Leiningen
+  ;; so we append whatever the initial classpath was onto what
+  ;; swank-clojure-project thinks the classpath should be. Project
+  ;; jars and dirs come first, then initial swank-clojure-classpath
+  ;; stuff, so the project can always override the Clojure version or
+  ;; swank or anything else.
+  (defvar clojure-box-initial-classpath nil)
+  (defadvice swank-clojure-project (before init-clojure-box-classpath)
+    (setq clojure-box-initial-classpath swank-clojure-classpath))
+  (add-hook 'swank-clojure-project-hook
+	    (lambda ()
+	      (setq swank-clojure-classpath
+		    (append swank-clojure-classpath
+			    clojure-box-initial-classpath))))
+
   (add-to-list 'load-path (concat clojure-home "swank-clojure/"))
   (setq swank-clojure-jar-home (concat clojure-home "lib"))
   (require 'swank-clojure)
 
-  ;; The user may setq this in ~/.emacs. By now it's either defined there
-  ;; or in the require call above, so it's safe to add.
+  ;; Classpath hackery. The user may setq this in ~/.emacs for
+  ;; personal jars and dirs. If not, swank-clojure sets up the
+  ;; defaults. Here we make sure the defaults are added to the end if
+  ;; the user set the variable, in case they didn't add everything we
+  ;; need.
+  (dolist (item (swank-clojure-default-classpath))
+    (add-to-list 'swank-clojure-classpath item 'append))
+  ;; And of course we need our swank sources in there.
   (add-to-list 'swank-clojure-classpath
 	       (concat clojure-home "swank-clojure/src"))
 
