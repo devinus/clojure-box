@@ -37,6 +37,22 @@ Clojure svn r1235. This release contains lazy-cons and lazy-seq, which [[http://
 [[./releases][Older versions]]
 
 
+* Instructions
+
+  1. Install.
+  2. Launch.
+  3. Hack in the REPL!
+
+When you're ready to learn Emacs, start with the tutorial (C-h t). To start
+saving code in files and projects, read Clojure Box's README and post-install
+notes (the installer creates shortcuts for these).
+
+M-x swank-clojure-project is your friend for restarting the REPL with a custom
+classpath including src, classes, and lib/*.jar from a project directory. This
+works with Maven-style layouts, too. By the way, Clojure Box is based on
+[[http://github.com/technomancy/swank-clojure][swank-clojure]], so most tricks there apply.
+
+
 * Components
 
 Clojure Box consists of these components:

@@ -1,8 +1,9 @@
 * {margin:0px;padding:0px;}
 a {outline:none;color:#00628b;text-decoration:none;}
-body {margin:0 auto;width:80%;background-color:#e6e6dc;font-family:arial;font-size:12pt;}
+body {margin:0 auto 30px auto;width:80%;background-color:#e6e6dc;font-family:arial;font-size:12pt;}
 h1 {font-family:Verdana;margin:15px 0 10px 0;}
 h2 {font-family:Arial;margin:15px 15px 0 15px;font-size:1.2em;border-bottom:1px solid #81A594;}
 p {padding:5px 30px 10px 30px;}
-ul {margin:0 0 0 45px;}
-li {list-style-type:none;}
+ul {margin:0 0 0 45px;list-style-type:none;}
+ol {margin:5px 0 0 45px;}
+ol li {margin: 0 0 0 10px;}

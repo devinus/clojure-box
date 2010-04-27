@@ -32,7 +32,7 @@
 
 - Updated EmacsW32: Emacs-23-CvsP091103-EmacsW32-1.58.exe.
 
-- Patched swank-clojure ([[http://github.com/shoover/swank-clojure][patches]]):
+- Patched swank-clojure ([[http://github.com/shoover/swank-clojure/commits/win32][patches]]):
   - Prevent REPL hang on startup on XP (it would hang until the user pressed
     Enter).
   - Fix Find Definition to work with Windows pathnames.

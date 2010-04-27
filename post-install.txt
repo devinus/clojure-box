@@ -10,6 +10,8 @@ Save a file (save-buffer): C-x C-s
 Switch to another open buffer (iswitchb): C-x b
 Close Emacs (kill-emacs): C-x C-c
 Execute any Emacs function by name: M-x (Alt+x)
+Restart the REPL with src, classes, and lib/*.jar on the classpath: M-x
+swank-clojure-project
 
 In the REPL you can use M-p and M-n to cycle up and down across previous
 expressions.
