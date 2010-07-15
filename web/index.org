@@ -3,7 +3,7 @@
 #+EMAIL:     shawn@bighugh.com
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
-#+OPTIONS:   author:nil creator:nil timestamp:nil
+#+OPTIONS:   author:nil creator:nil timestamp:t
 #+STYLE: <link rel="stylesheet" type="text/css" href="styles.css" />
 
 Clojure Box is an all-in-one installer for [[http://clojure.org][Clojure]] on Windows.  It's inspired
@@ -20,7 +20,8 @@ system (usually it's in c:\windows\system32), it provides the rest.
 
 * Download
 
-Here's the box. See the [[file:release-log.org][release notes]] for more details.
+Here's the box. See the [[file:release-log.org][release notes]] for more details. Clojure 1.2 just went
+into beta, so I hope to have a release with that soon.
 
 [[file:releases/clojure-box-1.1.0-1-setup.exe][Clojure Box 1.1.0]] published December 31, 2009, updated January 5, 2010, built
 from the official Clojure 1.1.0 download.

@@ -3,7 +3,7 @@
 #+EMAIL:     shawn@bighugh.com
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
-#+OPTIONS:   author:nil creator:nil timestamp:nil
+#+OPTIONS:   author:nil creator:nil timestamp:t
 #+STYLE: <link rel="stylesheet" type="text/css" href="styles.css" />
 #+LINK_HOME: index.html
 
@@ -11,6 +11,7 @@
 
 #+BEGIN_HTML Style overrides
 <style type="text/css">
+  body {max-width:600px;}
   /* hide the generated h1.title so I can put a link at the top
      (and then I have to add a replacement title) */
   h1.title { display: none; }
@@ -18,7 +19,7 @@
   /* override the cleaner front page style */
   li {list-style-type:disc;}
 
-  h3 {margin:15px 0px 0px 0px;
+  h3 {margin:15px 0px 0px 0px;}
 </style>
 
 <h1 style="text-align:center;">Clojure Box Release Notes</h1>

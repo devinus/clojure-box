@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -6,18 +7,20 @@ lang="en" xml:lang="en">
 <title>Clojure Box Release Notes</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2010-01-05 08:53:17 "/>
+<meta name="generated" content="2010-07-15 15:22:27 "/>
 <meta name="author" content="Shawn Hoover"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   html { font-family: Times, serif; font-size: 12pt; }
   .title  { text-align: center; }
   .todo   { color: red; }
   .done   { color: green; }
-  .tag    { background-color:lightblue; font-weight:normal }
+  .tag    { background-color: #add8e6; font-weight:normal }
   .target { }
-  .timestamp { color: grey }
-  .timestamp-kwd { color: CadetBlue }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
   p.verse { margin-left: 3% }
   pre {
 	border: 1pt solid #AEBDCC;
@@ -30,7 +33,11 @@ lang="en" xml:lang="en">
   table { border-collapse: collapse; }
   td, th { vertical-align: top; }
   dt { font-weight: bold; }
-
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
   .org-info-js_info-navigation { border-style:none; }
   #org-info-js_console-label { font-size:10px; font-weight:bold;
                                white-space:nowrap; }
@@ -39,7 +46,37 @@ lang="en" xml:lang="en">
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="styles.css" />
-</head><body>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div>
+
 <h1 class="title">Clojure Box Release Notes</h1>
 
 <p><a href="index.html">Clojure Box Home</a> + <a href="releases">All Releases</a>
@@ -54,7 +91,9 @@ lang="en" xml:lang="en">
   /* override the cleaner front page style */
   li {list-style-type:disc;}
 
-  h3 {margin:15px 0px 0px 0px;
+  h3 {margin:15px 0px 0px 0px;}
+  #postamble {text-align:right;}
+  body {max-width:600px; text-align:justify;}
 </style>
 
 <h1 style="text-align:center;">Clojure Box Release Notes</h1>
@@ -63,7 +102,7 @@ lang="en" xml:lang="en">
 
 <div id="outline-container-1" class="outline-3">
 <h3 id="sec-1">1.1.0-1 </h3>
-<div id="text-1">
+<div class="outline-text-3" id="text-1">
 
 
 <ul>
@@ -83,7 +122,7 @@ Added some Slime shortcuts to the post-install help text.
 
 <div id="outline-container-2" class="outline-3">
 <h3 id="sec-2">1.1.0 </h3>
-<div id="text-2">
+<div class="outline-text-3" id="text-2">
 
 
 <ul>
@@ -110,7 +149,7 @@ swank-clojure-project in .emacs.
 
 <div id="outline-container-3" class="outline-3">
 <h3 id="sec-3">1.1RC1 </h3>
-<div id="text-3">
+<div class="outline-text-3" id="text-3">
 
 
 <ul>
@@ -150,7 +189,7 @@ top.
 
 <div id="outline-container-4" class="outline-3">
 <h3 id="sec-4">1.0 </h3>
-<div id="text-4">
+<div class="outline-text-3" id="text-4">
 
 
 <ul>
@@ -201,7 +240,7 @@ Fix Find Definition to work with Windows pathnames.
 
 <div id="outline-container-5" class="outline-3">
 <h3 id="sec-5">20090320 </h3>
-<div id="text-5">
+<div class="outline-text-3" id="text-5">
 
 
 <ul>
@@ -231,7 +270,7 @@ Fix Find Definition to work with Windows pathnames.
 
 <div id="outline-container-6" class="outline-3">
 <h3 id="sec-6">r1327.1 </h3>
-<div id="text-6">
+<div class="outline-text-3" id="text-6">
 
 
 <ul>
@@ -261,7 +300,7 @@ Fix Find Definition to work with Windows pathnames.
 
 <div id="outline-container-7" class="outline-3">
 <h3 id="sec-7">r1327 </h3>
-<div id="text-7">
+<div class="outline-text-3" id="text-7">
 
 
 <ul>
@@ -282,7 +321,7 @@ on XP. (<a href="http://bitbucket.org/shoover/clojure-box-swank-clojuremq/">patc
 
 <div id="outline-container-8" class="outline-3">
 <h3 id="sec-8">r1235 </h3>
-<div id="text-8">
+<div class="outline-text-3" id="text-8">
 
 
 <ul>
@@ -307,7 +346,7 @@ Added repl startup hook to indent Clojure code.
 
 <div id="outline-container-9" class="outline-3">
 <h3 id="sec-9">r1142 </h3>
-<div id="text-9">
+<div class="outline-text-3" id="text-9">
 
 
 <ul>
@@ -327,7 +366,7 @@ Added a REPL shortcut.
 
 <div id="outline-container-10" class="outline-3">
 <h3 id="sec-10">r1109.1 </h3>
-<div id="text-10">
+<div class="outline-text-3" id="text-10">
 
 
 <ul>
@@ -367,7 +406,7 @@ shortcuts don't have to set &ndash;no-splash all the time.
 
 <div id="outline-container-11" class="outline-3">
 <h3 id="sec-11">r1109 </h3>
-<div id="text-11">
+<div class="outline-text-3" id="text-11">
 
 
 <p>
@@ -390,5 +429,9 @@ pageTracker._trackPageview();
 } catch(err) {}</script>
 </div>
 </div>
-<div id="postamble"></div></body>
+<div id="postamble">
+<p class="date"> Date: 2010-07-15 15:22:27 </p>
+</div>
+</div>
+</body>
 </html>
