@@ -1,0 +1,100 @@
+#+EMAIL:     shawn@bighugh.com
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
+#+OPTIONS:   author:nil creator:nil timestamp:nil
+#+STYLE: <link rel="stylesheet" type="text/css" href="styles.css" />
+
+Thrush Combinators in Clojure
+
+#+BEGIN_HTML Style overrides
+<style type="text/css">
+  body { width: 90%; max-width: 800px; min-width: 500px;
+    font-family: Georgia, Arial;
+  }
+  p { text-align: justify; }
+  code { font-family: monospace, consolas, courier; }
+  pre {
+	  border: 1pt solid #aebdcc;
+    background-color: #1c1c1c;
+    color: #dcdccc;
+    max-width: 600px;
+    min-width: 400px;
+	  margin: 5px 30px 10px 30px;
+	  font-family: monospace, consolas, courier;
+    font-size: 90%;
+    overflow:auto;
+  }
+</style>
+#+END_HTML
+
+As I read [[http://github.com/raganwald/homoiconic/blob/master/2008-10-30/thrush.markdown#readme][Raganwald on Thrushes]], I found myself thinking surely some
+combinators were built in to Clojure already, and if so which ones? I decided
+to try porting the thrushes to Clojure.
+
+* Ruby Versions
+
+The =into= thrush lets you change from:
+
+#+BEGIN_SRC ruby
+lambda { |x| x * x }.call((1..100).select(&:odd?).inject(&:+))
+#+END_SRC
+
+to:
+
+#+BEGIN_SRC ruby
+(1..100).select(&:odd?).inject(&:+).into { |x| x * x }
+#+END_SRC
+
+It reads better because everything is chained instead of the square wrapping
+the rest of the chain.
+
+But then for some reason relating to scoping local variables he makes the
+=let= thrush:
+
+#+BEGIN_SRC ruby
+let (1..100).select(&:odd?).inject(&:+) do |x| 
+  x * x
+end
+#+END_SRC
+
+I don't understand why that's different than the chained into block, but he
+seems to be saying the let with do/end protects the surrounding scope better.
+
+* Clojure Versions
+
+I thought the into thrush would be trivial in Clojure using the thread macro
+=->=. It turns out the other thread macro =->>= is required, and it wasn't quite
+as trivial as I thought. Just like in Ruby, if you had a square function
+already, you could just chain it on the end, but if you want ad hoc logic, you
+have to provide a closure. The semantics of the =->>= macro evaluation require
+wrapping the closure in extra parens.
+
+#+BEGIN_SRC clojure
+  (->> (range 1 101) (filter odd?) (reduce +) (#(* % %)))
+  (->> (range 1 101) (filter odd?) (reduce +) ((fn [x] (* x x))))
+
+  ;; If you don't like the parens doing seemingly nothing, you can
+  ;; throw a name in there.
+  (defn my-into [f val]
+    (f val))
+  (->> (range 1 101) (filter odd?) (reduce +) (my-into #(* % %)))
+
+  ;; Or use a macro to make it look more like the Ruby version.
+  (defmacro my-into2 [[x] & body+val]
+    (let [val (last body+val)
+          body (butlast body+val)]
+      `(let [~x ~val]
+         ~@body)))
+  
+  (->> (range 1 101) (filter odd?) (reduce +) (my-into2 [x] (* x x)))
+#+END_SRC
+
+The let thrush is, of course, built in to Clojure:
+
+#+BEGIN_SRC clojure
+  (let [x (->> (range 1 101) (filter odd?) (reduce +))]
+    (* x x))
+#+END_SRC
+
+In practice in Clojure I think the overhead of understanding my-into is a
+little steep, so I would probably just use let and call it a day. Or maybe
+there's a better way in Clojure that I'm not thinking of.
