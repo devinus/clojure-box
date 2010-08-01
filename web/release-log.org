@@ -26,6 +26,17 @@
 #+END_HTML
 
 
+** 1.2.0 RC1
+
+- Updated Clojure and Contrib to 1.2.0 RC1.
+
+- Fixed the Clojure REPL shortcut to use the right jars.
+
+- Simplified README paredit instructions.
+
+- Added slime-fancy to the slime-setup call.
+
+
 ** 1.1.0-1
 
 - Updated clojure.contrib.jar with the same version but this time compiled.
