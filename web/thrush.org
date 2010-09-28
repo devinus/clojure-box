@@ -133,4 +133,6 @@ and not macros, the compiler won't allow the syntactic deception chouser
 shoved through =->>= above, but that was exactly his point: =->>= messes with
 syntax, it doesn't just compose function calls. Book authors say to write
 macros only when a function won't do, and the errant =i= above shows how
-/calling/ macros requires much care, as well.
+/calling/ macros requires much care, as well. Given that the function versions
+require you to build anonymous fns for innocent little snippets like =(filter
+odd?)=, I think I'll stick with =->>= and just try to be careful.
