@@ -97,3 +97,38 @@ The let thrush is, of course, built in to Clojure:
 In practice in Clojure I think the overhead of understanding my-into is a
 little steep, so I would probably just use let and call it a day. Or maybe
 there's a better way in Clojure that I'm not thinking of.
+
+** And Then
+
+And then I brought it up in #clojure and got taken to school. Chouser made the
+point that =->>= is a macro and therefore can't technically be a
+combinator. Indeed, it can cause trouble:
+
+#+BEGIN_EXAMPLE
+<chouser> ,(->> (* i 2) (let [i 10]))
+<clojurebot> 20
+#+END_EXAMPLE
+
+The =->>= macro is not really gathering up the arguments and calling them as
+it goes along. It reorders the code into nested calls, thus the binding of i
+in the final let form affects the outcome of the multiplication. Oops!
+
+Here's how it's implemented as a function:
+
+#+BEGIN_EXAMPLE
+<chouser> (defn thrush [& args] (reduce #(%2 %1) args))
+<chouser> (thrush 5 sqr (fn [x] (+ 1 x)) #(Math/sqrt %) int str) ;=>
+          "5"
+<_fogus_> chouser: Or another way to "visualize" thrush is (defn
+          thrush [a & args] ((apply comp (reverse args)) a))
+#+END_EXAMPLE
+
+\_fogus\_'s =comp= version maps very nicely to how I think of the thrush
+combinator, and chouser's =reduce= version is simply stunning. The way it
+steps past the first argument without calling it as a function is a very
+clever use of the semantics of =reduce=. Now, these versions being functions
+and not macros, the compiler won't allow the syntactic deception chouser
+shoved through =->>= above, but that was exactly his point: =->>= messes with
+syntax, it doesn't just compose function calls. Book authors say to write
+macros only when a function won't do, and the errant =i= above shows how
+/calling/ macros requires much care, as well.

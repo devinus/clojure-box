@@ -7,7 +7,7 @@ lang="en" xml:lang="en">
 <title>Thrush Combinators in Clojure</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2010-07-15 15:24:50 "/>
+<meta name="generated" content="2010-09-28 15:26:30 "/>
 <meta name="author" content="Shawn Hoover"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -139,9 +139,9 @@ But then for some reason relating to scoping local variables he makes the
 
 
 
-<pre class="src src-ruby">let (1..100).select(&amp;<span style="color: #dca3a3; font-weight: bold;">:odd?</span>).inject(&amp;<span style="color: #dca3a3; font-weight: bold;">:+</span>) <span style="color: #8cd0d3; font-weight: bold;">do</span> |x| 
+<pre class="src src-ruby">let (1..100).select(&amp;<span style="color: #dca3a3; font-weight: bold;">:odd?</span>).inject(&amp;<span style="color: #dca3a3; font-weight: bold;">:+</span>) <span style="color: #f0dfaf; font-weight: bold;">do</span> |x| 
   x * x
-<span style="color: #8cd0d3; font-weight: bold;">end</span>
+<span style="color: #f0dfaf; font-weight: bold;">end</span>
 </pre>
 
 
@@ -170,23 +170,23 @@ wrapping the closure in extra parens.
 
 
 
-<pre class="src src-clojure"><span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">(</span>#<span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> % %<span style="color: #606060;">)))</span>
-<span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">((</span><span style="color: #8cd0d3;">fn</span> <span style="color: #606060;">[</span>x<span style="color: #606060;">]</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> x x<span style="color: #606060;">))))</span>
+<pre class="src src-clojure"><span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">(</span>#<span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> % %<span style="color: #606060;">)))</span>
+<span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">((</span><span style="color: #8cd0d3;">fn</span> <span style="color: #606060;">[</span>x<span style="color: #606060;">]</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> x x<span style="color: #606060;">))))</span>
 
-<span style="color: #708070;">;; </span><span style="color: #f0dfaf;">If you don't like the parens doing seemingly nothing, you can
-</span><span style="color: #708070;">;; </span><span style="color: #f0dfaf;">throw a name in there.
-</span><span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">defn</span> <span style="color: #00fa9a; font-weight: bold;">my-into</span> <span style="color: #606060;">[</span>f val<span style="color: #606060;">]</span>
+<span style="color: #708070;">;; </span><span style="color: #7f9f7f;">If you don't like the parens doing seemingly nothing, you can
+</span><span style="color: #708070;">;; </span><span style="color: #7f9f7f;">throw a name in there.
+</span><span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">defn</span> <span style="color: #f0dfaf;">my-into</span> <span style="color: #606060;">[</span>f val<span style="color: #606060;">]</span>
   <span style="color: #606060;">(</span>f val<span style="color: #606060;">))</span>
-<span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">(</span>my-into #<span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> % %<span style="color: #606060;">)))</span>
+<span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">(</span>my-into #<span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> % %<span style="color: #606060;">)))</span>
 
-<span style="color: #708070;">;; </span><span style="color: #f0dfaf;">Or use a macro to make it look more like the Ruby version.
-</span><span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">defmacro</span> <span style="color: #00fa9a; font-weight: bold;">my-into2</span> <span style="color: #606060;">[[</span>x<span style="color: #606060;">]</span> &amp; body+val<span style="color: #606060;">]</span>
-  <span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">let</span> <span style="color: #606060;">[</span>val <span style="color: #606060;">(</span><span style="color: #8cd0d3;">last</span> body+val<span style="color: #606060;">)</span>
+<span style="color: #708070;">;; </span><span style="color: #7f9f7f;">Or use a macro to make it look more like the Ruby version.
+</span><span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">defmacro</span> <span style="color: #f0dfaf;">my-into2</span> <span style="color: #606060;">[[</span>x<span style="color: #606060;">]</span> &amp; body+val<span style="color: #606060;">]</span>
+  <span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">let</span> <span style="color: #606060;">[</span>val <span style="color: #606060;">(</span><span style="color: #8cd0d3;">last</span> body+val<span style="color: #606060;">)</span>
         body <span style="color: #606060;">(</span><span style="color: #8cd0d3;">butlast</span> body+val<span style="color: #606060;">)]</span>
-    `<span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">let</span> <span style="color: #606060;">[</span>~x ~val<span style="color: #606060;">]</span>
+    `<span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">let</span> <span style="color: #606060;">[</span>~x ~val<span style="color: #606060;">]</span>
        ~@body<span style="color: #606060;">)))</span>
 
-<span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">(</span>my-into2 <span style="color: #606060;">[</span>x<span style="color: #606060;">]</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> x x<span style="color: #606060;">)))</span>
+<span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">)</span> <span style="color: #606060;">(</span>my-into2 <span style="color: #606060;">[</span>x<span style="color: #606060;">]</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> x x<span style="color: #606060;">)))</span>
 </pre>
 
 
@@ -197,7 +197,7 @@ The let thrush is, of course, built in to Clojure:
 
 
 
-<pre class="src src-clojure"><span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">let</span> <span style="color: #606060;">[</span>x <span style="color: #606060;">(</span><span style="color: #8cd0d3; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">))]</span>
+<pre class="src src-clojure"><span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">let</span> <span style="color: #606060;">[</span>x <span style="color: #606060;">(</span><span style="color: #f0dfaf; font-weight: bold;">-&gt;&gt;</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">range</span> 1 101<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">filter</span> odd?<span style="color: #606060;">)</span> <span style="color: #606060;">(</span><span style="color: #8cd0d3;">reduce</span> +<span style="color: #606060;">))]</span>
   <span style="color: #606060;">(</span><span style="color: #8cd0d3;">*</span> x x<span style="color: #606060;">))</span>
 </pre>
 
@@ -207,7 +207,61 @@ The let thrush is, of course, built in to Clojure:
 In practice in Clojure I think the overhead of understanding my-into is a
 little steep, so I would probably just use let and call it a day. Or maybe
 there's a better way in Clojure that I'm not thinking of.
+</p>
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1">And Then </h3>
+<div class="outline-text-3" id="text-2.1">
+
+
+<p>
+And then I brought it up in #clojure and got taken to school. Chouser made the
+point that <code>-&gt;&gt;</code> is a macro and therefore can't technically be a
+combinator. Indeed, it can cause trouble:
+</p>
+
+
+
+<pre class="example">&lt;chouser&gt; ,(-&gt;&gt; (* i 2) (let [i 10]))
+&lt;clojurebot&gt; 20
+</pre>
+
+
+
+<p>
+The <code>-&gt;&gt;</code> macro is not really gathering up the arguments and calling them as
+it goes along. It reorders the code into nested calls, thus the binding of i
+in the final let form affects the outcome of the multiplication. Oops!
+</p>
+<p>
+Here's how it's implemented as a function:
+</p>
+
+
+
+<pre class="example">&lt;chouser&gt; (defn thrush [&amp; args] (reduce #(%2 %1) args))
+&lt;chouser&gt; (thrush 5 sqr (fn [x] (+ 1 x)) #(Math/sqrt %) int str) ;=&gt;
+          "5"
+&lt;_fogus_&gt; chouser: Or another way to "visualize" thrush is (defn
+          thrush [a &amp; args] ((apply comp (reverse args)) a))
+</pre>
+
+
+
+<p>
+_fogus_'s <code>comp</code> version maps very nicely to how I think of the thrush
+combinator, and chouser's <code>reduce</code> version is simply stunning. The way it
+steps past the first argument without calling it as a function is a very
+clever use of the semantics of <code>reduce</code>. Now, these versions being functions
+and not macros, the compiler won't allow the syntactic deception chouser
+shoved through <code>-&gt;&gt;</code> above, but that was exactly his point: <code>-&gt;&gt;</code> messes with
+syntax, it doesn't just compose function calls. Book authors say to write
+macros only when a function won't do, and the errant <code>i</code> above shows how
+<i>calling</i> macros requires much care, as well.
 </p></div>
+</div>
 </div>
 <div id="postamble">
 </div>
