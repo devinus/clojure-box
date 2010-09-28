@@ -15,17 +15,23 @@
 
   ;; swank-clojure assumes its autoloads run and define this before slime
   ;; is loaded.
-  (defadvice slime-read-interactive-args (before add-clojure)
+  (defadvice slime-read-interactive-args (after add-clojure)
     ;; Unfortunately we need to construct our Clojure-launching command
     ;; at slime-launch time to reflect changes in the classpath. Slime
     ;; has no mechanism to support this, so we must resort to advice.
-    (require 'assoc)
-    (aput 'slime-lisp-implementations 'clojure
-	  (list (swank-clojure-cmd) :init 'swank-clojure-init)))
+    (swank-clojure-reset-implementation))
 
-  (add-to-list 'load-path (concat clojure-home "slime-cvs/"))
+  (add-to-list 'load-path (concat clojure-home "slime/"))
   (require 'slime)
-  (slime-setup '(slime-repl))
+  (slime-setup '(slime-repl slime-fancy))
+  ;; Redefine this to not complain about the so called ChangeLog file.
+  (defun slime-repl-insert-banner ()
+    (when (zerop (buffer-size))
+      (let ((welcome (concat "; SLIME"
+                             ;;(or (slime-changelog-date)
+                             ;;    "- ChangeLog file not found")
+                             )))
+        (insert welcome))))
 
   (add-to-list 'load-path (concat clojure-home "clojure-mode/"))
   (require 'clojure-mode)
@@ -41,10 +47,12 @@
   (defadvice swank-clojure-project (before init-clojure-box-classpath)
     (setq clojure-box-initial-classpath swank-clojure-classpath))
   (add-hook 'swank-clojure-project-hook
-	    (lambda ()
-	      (setq swank-clojure-classpath
-		    (append swank-clojure-classpath
-			    clojure-box-initial-classpath))))
+            (lambda ()
+              (setq swank-clojure-classpath
+                    (append swank-clojure-classpath
+                            clojure-box-initial-classpath))
+              (swank-clojure-reset-implementation)
+              (message (format "clojure box hook %s" swank-clojure-classpath))))
 
   (add-to-list 'load-path (concat clojure-home "swank-clojure/"))
   (setq swank-clojure-jar-home (concat clojure-home "lib"))
@@ -59,7 +67,9 @@
     (add-to-list 'swank-clojure-classpath item 'append))
   ;; And of course we need our swank sources in there.
   (add-to-list 'swank-clojure-classpath
-	       (concat clojure-home "swank-clojure/src"))
+               (concat clojure-home "swank-clojure/src") 'append)
 
   ;; Start the REPL
-  (slime))
+  (require 'assoc)
+  (swank-clojure-reset-implementation)
+  (slime 'clojure))

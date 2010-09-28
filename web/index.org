@@ -20,8 +20,10 @@ system (usually it's in c:\windows\system32), it provides the rest.
 
 * Download
 
-Here's the box. See the [[file:release-log.org][release notes]] for more details. Clojure 1.2 just went
-into beta, so I hope to have a release with that soon.
+Here's the box. See the [[file:release-log.org][release notes]] for more details.
+
+[[file:releases/clojure-box-1.2.0-RC1-setup.exe][Clojure Box 1.2.0 RC1]] published July 31, 2010, built from the official Clojure
+1.2.0 RC1 download.
 
 [[file:releases/clojure-box-1.1.0-1-setup.exe][Clojure Box 1.1.0]] published December 31, 2009, updated January 5, 2010, built
 from the official Clojure 1.1.0 download.
