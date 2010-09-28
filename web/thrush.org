@@ -10,7 +10,9 @@ Thrush Combinators in Clojure
   body { width: 90%; max-width: 700px; min-width: 500px;
     font-family: Georgia, Arial;
   }
-  code { font-family: monospace, consolas, courier; }
+  code { font-family: monospace, consolas, courier;
+    font-size: 90%;
+  }
   pre {
 	  border: 1pt solid #aebdcc;
     background-color: #1c1c1c;
@@ -94,13 +96,13 @@ The let thrush is, of course, built in to Clojure:
     (* x x))
 #+END_SRC
 
-In practice in Clojure I think the overhead of understanding my-into is a
-little steep, so I would probably just use let and call it a day. Or maybe
+In practice in Clojure I think the overhead of understanding =my-into= is a
+little steep, so I would probably just use =let= and call it a day. Or maybe
 there's a better way in Clojure that I'm not thinking of.
 
 ** And Then
 
-And then I brought it up in #clojure and got taken to school. Chouser made the
+Then I brought it up in #clojure and got taken to school. Chouser made the
 point that =->>= is a macro and therefore can't technically be a
 combinator. Indeed, it can cause trouble:
 
@@ -110,8 +112,8 @@ combinator. Indeed, it can cause trouble:
 #+END_EXAMPLE
 
 The =->>= macro is not really gathering up the arguments and calling them as
-it goes along. It reorders the code into nested calls, thus the binding of i
-in the final let form affects the outcome of the multiplication. Oops!
+it goes along. It reorders the code into nested calls, thus the binding of =i=
+in the final =let= form affects the outcome of the multiplication. Oops!
 
 Here's how it's implemented as a function:
 

@@ -7,7 +7,7 @@ lang="en" xml:lang="en">
 <title>Thrush Combinators in Clojure</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2010-09-28 15:26:30 "/>
+<meta name="generated" content="2010-09-28 15:33:44 "/>
 <meta name="author" content="Shawn Hoover"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -81,7 +81,9 @@ lang="en" xml:lang="en">
   body { width: 90%; max-width: 700px; min-width: 500px;
     font-family: Georgia, Arial;
   }
-  code { font-family: monospace, consolas, courier; }
+  code { font-family: monospace, consolas, courier;
+    font-size: 90%;
+  }
   pre {
     border: 1pt solid #aebdcc;
     background-color: #1c1c1c;
@@ -204,8 +206,8 @@ The let thrush is, of course, built in to Clojure:
 
 
 <p>
-In practice in Clojure I think the overhead of understanding my-into is a
-little steep, so I would probably just use let and call it a day. Or maybe
+In practice in Clojure I think the overhead of understanding <code>my-into</code> is a
+little steep, so I would probably just use <code>let</code> and call it a day. Or maybe
 there's a better way in Clojure that I'm not thinking of.
 </p>
 
@@ -217,7 +219,7 @@ there's a better way in Clojure that I'm not thinking of.
 
 
 <p>
-And then I brought it up in #clojure and got taken to school. Chouser made the
+Then I brought it up in #clojure and got taken to school. Chouser made the
 point that <code>-&gt;&gt;</code> is a macro and therefore can't technically be a
 combinator. Indeed, it can cause trouble:
 </p>
@@ -232,8 +234,8 @@ combinator. Indeed, it can cause trouble:
 
 <p>
 The <code>-&gt;&gt;</code> macro is not really gathering up the arguments and calling them as
-it goes along. It reorders the code into nested calls, thus the binding of i
-in the final let form affects the outcome of the multiplication. Oops!
+it goes along. It reorders the code into nested calls, thus the binding of <code>i</code>
+in the final <code>let</code> form affects the outcome of the multiplication. Oops!
 </p>
 <p>
 Here's how it's implemented as a function:
