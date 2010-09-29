@@ -57,8 +57,10 @@ let (1..100).select(&:odd?).inject(&:+) do |x|
 end
 #+END_SRC
 
-I don't understand why that's different than the chained into block, but he
-seems to be saying the let with do/end protects the surrounding scope better.
+I don't understand why that's different than the chained =into= block, but I
+think he's saying that for some reason pertaining to an obscure corner of Ruby
+syntax the =let= with do/end protects the surrounding scope better.
+
 
 * Clojure Versions
 
@@ -111,11 +113,11 @@ combinator. Indeed, it can cause trouble:
 <clojurebot> 20
 #+END_EXAMPLE
 
-The =->>= macro is not really gathering up the arguments and calling them as
-it goes along. It reorders the code into nested calls, thus the binding of =i=
-in the final =let= form affects the outcome of the multiplication. Oops!
+The =->>= macro is not gathering up the arguments and calling them one at a
+time. It reorders the code into nested calls, thus the binding of =i= in the
+final =let= form affects the outcome of the multiplication. Oops!
 
-Here's how it's implemented as a function:
+Here's how to implement it as a function:
 
 #+BEGIN_EXAMPLE
 <chouser> (defn thrush [& args] (reduce #(%2 %1) args))
@@ -125,14 +127,36 @@ Here's how it's implemented as a function:
           thrush [a & args] ((apply comp (reverse args)) a))
 #+END_EXAMPLE
 
-\_fogus\_'s =comp= version maps very nicely to how I think of the thrush
-combinator, and chouser's =reduce= version is simply stunning. The way it
-steps past the first argument without calling it as a function is a very
-clever use of the semantics of =reduce=. Now, these versions being functions
-and not macros, the compiler won't allow the syntactic deception chouser
-shoved through =->>= above, but that was exactly his point: =->>= messes with
-syntax, it doesn't just compose function calls. Book authors say to write
-macros only when a function won't do, and the errant =i= above shows how
-/calling/ macros requires much care, as well. Given that the function versions
-require you to build anonymous fns for innocent little snippets like =(filter
-odd?)=, I think I'll stick with =->>= and just try to be careful.
+Fogus's =comp= version maps very nicely to how I think of the thrush
+combinator (he also published [[http://blog.fogus.me/2010/09/28/thrush-in-clojure-redux/][an illuminating writeup]] of this exercise), and
+chouser's =reduce= version is simply stunning. The way it steps past the first
+argument without calling it as a function is a very clever use of the
+semantics of =reduce=.
+
+Now, these functions being functions and not macros, the compiler won't even
+allow the syntactic deception chouser shoved through =->>= above, but that was
+exactly his point: =->>= messes with syntax, it doesn't just compose function
+calls. This is why expressions may not be evaluated when you expect and you
+need an extra set of parens around anonymous fns when using these macros to
+emulate a thrush combinator. Lisp book authors say to write macros only when a
+function won't do, and the errant =i= above shows how /calling/ macros
+requires much care, as well. However, given that the function versions require
+you to build anonymous fns for innocent little snippets like =(filter odd?)=,
+I think I'll stick with =->>= and just try to be careful :)
+
+
+#+BEGIN_HTML Google Analytics
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
+"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11886472-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- styles.css thanks to Shane Eller -->
+#+END_HTML
