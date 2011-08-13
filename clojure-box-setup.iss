@@ -1,13 +1,13 @@
-#define ClojureDir "clojure-1.2.0-RC1"
+#define ClojureDir "clojure-1.2.0"
 #define ClojureJar "clojure.jar"
-#define ContribDir "clojure-contrib-1.2.0-RC1"
-#define ContribJar "clojure-contrib-1.2.0-RC1.jar"
+#define ContribDir "clojure-contrib-1.2.0"
+#define ContribJar "clojure-contrib-1.2.0.jar"
 
 [Setup]
 AllowNoIcons=yes
 AppId={{8BECBEE2-A1EF-4326-B1C6-8B4515E21916}
 AppName=Clojure Box
-AppVerName=Clojure Box 1.2.0 RC1
+AppVerName=Clojure Box 1.2.0
 AppPublisher=Clojure Box
 AppPublisherURL=http://clojure.bighugh.com
 AppSupportURL=http://http://www.bitbucket.org/shoover/clojure-box
@@ -18,7 +18,7 @@ DefaultGroupName=Clojure Box
 InfoBeforeFile=README.rtf
 InfoAfterFile=post-install.txt
 ;OutputDir=C:\Documents and Settings\Shawn\Desktop\clojure-box-setup
-OutputBaseFilename=clojure-box-1.2.0-RC1-setup
+OutputBaseFilename=clojure-box-1.2.0-setup
 Compression=lzma
 SolidCompression=yes
 
@@ -80,6 +80,4 @@ Root: HKCR; Subkey: ClojureFile\shell\open\command; ValueType: string; ValueName
 
 [Run]
 Filename: {app}\emacs\emacs\bin\runemacs.exe; Description: {cm:LaunchProgram,Clojure Box}; Flags: nowait postinstall skipifsilent
-
-
 

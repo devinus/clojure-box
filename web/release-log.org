@@ -26,6 +26,11 @@
 #+END_HTML
 
 
+** 1.2.0
+
+- Updated Clojure and Contrib to 1.2.0.
+
+
 ** 1.2.0 RC1
 
 - Updated Clojure and Contrib to 1.2.0 RC1.
