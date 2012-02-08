@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Clojure Box Release Notes</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2010-08-19 20:40:52 EDT"/>
+<meta name="author" content="Shawn Hoover"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="index.html"> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div>
+
+<h1 class="title">Clojure Box Release Notes</h1>
+
+<p><a href="index.html">Clojure Box Home</a> + <a href="releases">All Releases</a>
+</p>
+
+
+<style type="text/css">
+  body {max-width:600px;}
+  /* hide the generated h1.title so I can put a link at the top
+     (and then I have to add a replacement title) */
+  h1.title { display: none; }
+
+  /* override the cleaner front page style */
+  li {list-style-type:disc;}
+
+  h3 {margin:15px 0px 0px 0px;}
+</style>
+
+<h1 style="text-align:center;">Clojure Box Release Notes</h1>
+
+
+
+<div id="outline-container-1" class="outline-3">
+<h3 id="sec-1">1.2.0 </h3>
+<div class="outline-text-3" id="text-1">
+
+
+<ul>
+<li>
+Updated Clojure and Contrib to 1.2.0.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-3">
+<h3 id="sec-2">1.2.0 RC1 </h3>
+<div class="outline-text-3" id="text-2">
+
+
+<ul>
+<li>
+Updated Clojure and Contrib to 1.2.0 RC1.
+
+</li>
+<li>
+Fixed the Clojure REPL shortcut to use the right jars.
+
+</li>
+<li>
+Simplified README paredit instructions.
+
+</li>
+<li>
+Added slime-fancy to the slime-setup call.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-3">
+<h3 id="sec-3">1.1.0-1 </h3>
+<div class="outline-text-3" id="text-3">
+
+
+<ul>
+<li>
+Updated clojure.contrib.jar with the same version but this time compiled.
+
+</li>
+<li>
+Added some Slime shortcuts to the post-install help text.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-3">
+<h3 id="sec-4">1.1.0 </h3>
+<div class="outline-text-3" id="text-4">
+
+
+<ul>
+<li>
+Same components as 1.1RC1 but built with the official Clojure 1.1.0
+download.
+
+</li>
+<li>
+Updated default.el so swank-clojure-project can use the Clojure,
+Contrib, and Swank included with Clojure Box.
+
+</li>
+<li>
+Fixed a bug where the Slime REPL wouldn't start if the user set
+swank-clojure-project in .emacs.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-3">
+<h3 id="sec-5">1.1RC1 </h3>
+<div class="outline-text-3" id="text-5">
+
+
+<ul>
+<li>
+Built with the official Clojure 1.1RC1 download. Contrib is from github
+source at be33acd8. clojure-mode, swank-clojure, and slime are from
+github.com/technomancy as of December 19, 2009.
+
+</li>
+<li>
+Updated EmacsW32: Emacs-23-CvsP091103-EmacsW32-1.58.exe.
+
+</li>
+<li>
+Patched swank-clojure (<a href="http://github.com/shoover/swank-clojure/commits/win32">patches</a>):
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
+
+</li>
+</ul>
+</li>
+<li>
+Patched slime-repl.el to not print "ChangeLog file not found" at the
+top.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-3">
+<h3 id="sec-6">1.0 </h3>
+<div class="outline-text-3" id="text-6">
+
+
+<ul>
+<li>
+Built with the official 1.0 release from clojure.org. Contrib is from source
+at svn r774. clojure-mode, swank-clojure, and slime are updated from git as
+of May 9, 2009.
+
+</li>
+<li>
+Added shortcuts to the README and post-install documents.
+
+</li>
+<li>
+Included paredit.el. Users still have to activate it themselves.
+
+</li>
+<li>
+Fixed README customization example for swank-clojure-extra-classpaths.
+
+</li>
+<li>
+Fixed REPL shortcut to use the release clojure-X.jar.
+
+</li>
+<li>
+Documented how to select a 64-bit JDK on Vista 64.
+
+</li>
+<li>
+Patched swank-clojure (<a href="http://bitbucket.org/shoover/clojure-box-swank-clojuremq/">patches</a>):
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
+
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-3">
+<h3 id="sec-7">20090320 </h3>
+<div class="outline-text-3" id="text-7">
+
+
+<ul>
+<li>
+Built with the official 20090320 release from clojure.org. Contrib is from
+source at svn r613. clojure-mode and swank-clojure have not been updated.
+
+</li>
+<li>
+Patched swank-clojure (<a href="http://bitbucket.org/shoover/clojure-box-swank-clojuremq/">patches</a>):
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
+
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-3">
+<h3 id="sec-8">r1327.1 </h3>
+<div class="outline-text-3" id="text-8">
+
+
+<ul>
+<li>
+Fixed default.el to load clojure-mode instead of clojure-auto, which is no
+longer part of clojure-mode.
+
+</li>
+<li>
+Patched swank-clojure (<a href="http://bitbucket.org/shoover/clojure-box-swank-clojuremq/">patches</a>):
+<ul>
+<li>
+Prevent REPL hang on startup on XP (it would hang until the user pressed
+Enter).
+</li>
+<li>
+Fix Find Definition to work with Windows pathnames.
+
+
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-3">
+<h3 id="sec-9">r1327 </h3>
+<div class="outline-text-3" id="text-9">
+
+
+<ul>
+<li>
+Upgraded components. This is lazier Clojure.
+
+</li>
+<li>
+Patched swank-clojure so the REPL doesn't hang until the user presses enter
+on XP. (<a href="http://bitbucket.org/shoover/clojure-box-swank-clojuremq/">patch</a>)
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-10" class="outline-3">
+<h3 id="sec-10">r1235 </h3>
+<div class="outline-text-3" id="text-10">
+
+
+<ul>
+<li>
+Upgraded components.
+
+</li>
+<li>
+Patched swank-clojure so the REPL doesn't hang until the user presses enter
+on XP. (<a href="http://bitbucket.org/shoover/clojure-box-swank-clojuremq/">patch</a>)
+
+</li>
+<li>
+Added repl startup hook to indent Clojure code.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-11" class="outline-3">
+<h3 id="sec-11">r1142 </h3>
+<div class="outline-text-3" id="text-11">
+
+
+<ul>
+<li>
+Upgraded components.
+
+</li>
+<li>
+Added a REPL shortcut.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-12" class="outline-3">
+<h3 id="sec-12">r1109.1 </h3>
+<div class="outline-text-3" id="text-12">
+
+
+<ul>
+<li>
+Fixed swank-clojure-extra-classpaths so swank can add jars from ~/.clojure
+to the classpath.
+
+</li>
+<li>
+Added post-install instructions with basic emacs tips.
+
+</li>
+<li>
+Added attribution URLs to the installer README.
+
+</li>
+<li>
+Changed post-install to run runemacs instead of emacsclientw in an attempt
+to fix a reported hang.
+
+</li>
+<li>
+Moved site-start.el to default.el per emacs recommendations (so user can
+override by setting inhibit-default-init in .emacs.
+
+</li>
+<li>
+Fixed inhibit-splash-screen by setting it in after-init-hook. Now all the
+shortcuts don't have to set &ndash;no-splash all the time.
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-13" class="outline-3">
+<h3 id="sec-13">r1109 </h3>
+<div class="outline-text-3" id="text-13">
+
+
+<p>
+Initial release.
+</p>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
+"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11886472-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</div>
+</div>
+<div id="postamble">
+<p class="date"> Date: 2010-08-19 20:40:52 EDT</p>
+</div>
+</div>
+</body>
+</html>

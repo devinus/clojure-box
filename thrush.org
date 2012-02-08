@@ -1,0 +1,162 @@
+#+EMAIL:     shawn@bighugh.com
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
+#+OPTIONS:   author:nil creator:nil timestamp:nil
+#+STYLE: <link rel="stylesheet" type="text/css" href="styles.css" />
+
+Thrush Combinators in Clojure
+
+#+BEGIN_HTML Style overrides
+<style type="text/css">
+  body { width: 90%; max-width: 700px; min-width: 500px;
+    font-family: Georgia, Arial;
+  }
+  code { font-family: monospace, consolas, courier;
+    font-size: 90%;
+  }
+  pre {
+	  border: 1pt solid #aebdcc;
+    background-color: #1c1c1c;
+    color: #dcdccc;
+    max-width: 600px;
+    min-width: 400px;
+	  margin: 5px 30px 10px 30px;
+	  font-family: monospace, consolas, courier;
+    font-size: 90%;
+    overflow:auto;
+  }
+</style>
+#+END_HTML
+
+As I read [[http://github.com/raganwald/homoiconic/blob/master/2008-10-30/thrush.markdown#readme][Raganwald on Thrushes]], I found myself thinking surely some
+combinators were built in to Clojure already, and if so which ones? I decided
+to try porting the thrushes to Clojure.
+
+* Ruby Versions
+
+The =into= thrush lets you change from:
+
+#+BEGIN_SRC ruby
+lambda { |x| x * x }.call((1..100).select(&:odd?).inject(&:+))
+#+END_SRC
+
+to:
+
+#+BEGIN_SRC ruby
+(1..100).select(&:odd?).inject(&:+).into { |x| x * x }
+#+END_SRC
+
+It reads better because everything is chained instead of the square wrapping
+the rest of the chain.
+
+But then for some reason relating to scoping local variables he makes the
+=let= thrush:
+
+#+BEGIN_SRC ruby
+let (1..100).select(&:odd?).inject(&:+) do |x| 
+  x * x
+end
+#+END_SRC
+
+I don't understand why that's different than the chained =into= block, but I
+think he's saying that for some reason pertaining to an obscure corner of Ruby
+syntax the =let= with do/end protects the surrounding scope better.
+
+
+* Clojure Versions
+
+I thought the into thrush would be trivial in Clojure using the thread macro
+=->=. It turns out the other thread macro =->>= is required, and it wasn't quite
+as trivial as I thought. Just like in Ruby, if you had a square function
+already, you could just chain it on the end, but if you want ad hoc logic, you
+have to provide a closure. The semantics of the =->>= macro evaluation require
+wrapping the closure in extra parens.
+
+#+BEGIN_SRC clojure
+  (->> (range 1 101) (filter odd?) (reduce +) (#(* % %)))
+  (->> (range 1 101) (filter odd?) (reduce +) ((fn [x] (* x x))))
+
+  ;; If you don't like the parens doing seemingly nothing, you can
+  ;; throw a name in there.
+  (defn my-into [f val]
+    (f val))
+  (->> (range 1 101) (filter odd?) (reduce +) (my-into #(* % %)))
+
+  ;; Or use a macro to make it look more like the Ruby version.
+  (defmacro my-into2 [[x] & body+val]
+    (let [val (last body+val)
+          body (butlast body+val)]
+      `(let [~x ~val]
+         ~@body)))
+  
+  (->> (range 1 101) (filter odd?) (reduce +) (my-into2 [x] (* x x)))
+#+END_SRC
+
+The let thrush is, of course, built in to Clojure:
+
+#+BEGIN_SRC clojure
+  (let [x (->> (range 1 101) (filter odd?) (reduce +))]
+    (* x x))
+#+END_SRC
+
+In practice in Clojure I think the overhead of understanding =my-into= is a
+little steep, so I would probably just use =let= and call it a day. Or maybe
+there's a better way in Clojure that I'm not thinking of.
+
+** And Then
+
+Then I brought it up in #clojure and got taken to school. Chouser made the
+point that =->>= is a macro and therefore can't technically be a
+combinator. Indeed, it can cause trouble:
+
+#+BEGIN_EXAMPLE
+<chouser> ,(->> (* i 2) (let [i 10]))
+<clojurebot> 20
+#+END_EXAMPLE
+
+The =->>= macro is not gathering up the arguments and calling them one at a
+time. It reorders the code into nested calls, thus the binding of =i= in the
+final =let= form affects the outcome of the multiplication. Oops!
+
+Here's how to implement it as a function:
+
+#+BEGIN_EXAMPLE
+<chouser> (defn thrush [& args] (reduce #(%2 %1) args))
+<chouser> (thrush 5 sqr (fn [x] (+ 1 x)) #(Math/sqrt %) int str) ;=>
+          "5"
+<_fogus_> chouser: Or another way to "visualize" thrush is (defn
+          thrush [a & args] ((apply comp (reverse args)) a))
+#+END_EXAMPLE
+
+Fogus's =comp= version maps very nicely to how I think of the thrush
+combinator (he also published [[http://blog.fogus.me/2010/09/28/thrush-in-clojure-redux/][an illuminating writeup]] of this exercise), and
+chouser's =reduce= version is simply stunning. The way it steps past the first
+argument without calling it as a function is a very clever use of the
+semantics of =reduce=.
+
+Now, these functions being functions and not macros, the compiler won't even
+allow the syntactic deception chouser shoved through =->>= above, but that was
+exactly his point: =->>= messes with syntax, it doesn't just compose function
+calls. This is why expressions may not be evaluated when you expect and you
+need an extra set of parens around anonymous fns when using these macros to
+emulate a thrush combinator. Lisp book authors say to write macros only when a
+function won't do, and the errant =i= above shows how /calling/ macros
+requires much care, as well. However, given that the function versions require
+you to build anonymous fns for innocent little snippets like =(filter odd?)=,
+I think I'll stick with =->>= and just try to be careful :)
+
+
+#+BEGIN_HTML Google Analytics
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
+"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11886472-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- styles.css thanks to Shane Eller -->
+#+END_HTML

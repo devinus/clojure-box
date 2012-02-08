@@ -1,0 +1,87 @@
+#+TITLE:     Clojure Box
+#+AUTHOR:    Shawn Hoover
+#+EMAIL:     shawn@bighugh.com
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
+#+OPTIONS:   author:nil creator:nil timestamp:t
+#+STYLE: <link rel="stylesheet" type="text/css" href="styles.css" />
+
+@<i>I am no longer maintaining Clojure Box. I'll leave the exiting builds
+up as long as I keep my hosting alive. Anyone interested in making future
+builds can check out the [[https://bitbucket.org/shoover/clojure-box][Bitbucket source]] and have at it. Thanks for all the
+downloads. --Shawn@</i>
+
+Clojure Box is an all-in-one installer for [[http://clojure.org][Clojure]] on Windows.  It's inspired
+by the [[http://gigamonkeys.com/book/lispbox][Lispbox]]: you simply install and run this one thing, and you get a [[http://clojure.org/dynamic][REPL]]
+and all the syntax highlighting and editing goodies from clojure-mode and
+Slime, plus all the power of Emacs under the hood.
+
+* Requirements
+
+All you need is Java 1.5 or later. If Clojure Box can find java.exe on your
+system (usually it's in c:\windows\system32), it provides the rest.
+
+
+* Download
+
+[[file:releases/clojure-box-1.2.0-setup.exe][Clojure Box 1.2.0]], August 19, 2010, built from the official Clojure
+1.2.0 download.
+
+[[file:releases/clojure-box-1.1.0-1-setup.exe][Clojure Box 1.1.0]], December 31, 2009, updated January 5, 2010, built
+from the official Clojure 1.1.0 download.
+
+[[file:releases/clojure-box-1.0-setup.exe][Clojure Box 1.0]], May 9, 2009, built from the official Clojure
+1.0 release.
+
+[[./releases][Older versions]] 
+
+[[file:release-log.org][Release notes]] 
+
+
+* Instructions
+
+  1. Install.
+  2. Launch.
+  3. Hack in the REPL!
+
+When you're ready to learn Emacs, start with the tutorial (C-h t). To start
+saving code in files and projects, read Clojure Box's README and post-install
+notes (the installer creates shortcuts for these).
+
+M-x swank-clojure-project is your friend for restarting the REPL with a custom
+classpath including src, classes, and lib/*.jar from a project directory. This
+works with Maven-style layouts, too. By the way, Clojure Box is based on
+[[http://github.com/technomancy/swank-clojure][swank-clojure]], so most tricks there apply.
+
+
+* Components
+
+Clojure Box consists of these components:
+
+- [[http://clojure.org][Clojure]]
+- [[http://sourceforge.net/projects/clojure-contrib/][Clojure Contrib]]
+- [[http://ourcomments.org/Emacs/EmacsW32.html][Emacs, via EmacsW32]]
+- [[http://github.com/technomancy/clojure-mode][clojure-mode]]
+- [[http://github.com/technomancy/swank-clojure][swank-clojure]]
+- [[http://common-lisp.net/project/slime/][Slime]]
+- [[http://mumble.net/~campbell/emacs/paredit.el][Paredit]]
+
+Thanks to all the developers of these excellent packages!
+
+
+
+#+BEGIN_HTML Google Analytics
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
+"http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost +
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11886472-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!-- styles.css thanks to Shane Eller -->
+#+END_HTML
