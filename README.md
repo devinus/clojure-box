@@ -7,7 +7,7 @@ Requirements
 ------------
 
 All you need is Java 1.5 or later. If Clojure Box can find java.exe on
-your system (usually it's in C:\Windows\system32), it provides the rest.
+your system (usually it's in `C:\Windows\system32`), it provides the rest.
 
 Components
 ----------
@@ -23,11 +23,11 @@ Clojure Box consists of these components:
 - Paredit <http://mumble.net/~campbell/emacs/paredit.el>
 
 Paredit is included for your convenience, but you'll have to activate it
-in ~/.emacs.
+in `~/.emacs`.
 
-```elisp
-    (require 'paredit)
-    (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+```lisp
+(require 'paredit)
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
 ```
 
 Thanks to all the developers of these excellent packages!
@@ -52,15 +52,15 @@ Another way is to add jars or source directories to the classpath in
 your `.emacs`. To make `C:/dev/project/src/a.clj` and everything in
 `C:/dev/my-lib.jar` available, put this:
 
-```elisp
-    (setq swank-clojure-classpath
-        (list "C:/dev/project/src" "C:/dev/my-lib.jar"))
+```lisp
+(setq swank-clojure-classpath
+  (list "C:/dev/project/src" "C:/dev/my-lib.jar"))
 ```
 
 To add more, put them in the same list as above or add to that list:
 
-```elisp
-    (add-to-list 'swank-clojure-classpath "C:/dev/my-lib-c/src")
+```lisp
+(add-to-list 'swank-clojure-classpath "C:/dev/my-lib-c/src")
 ```
 
 You'll have to restart the REPL to make new jars available.
@@ -69,9 +69,9 @@ Emacs may not respect custom `JAVA_HOME` settings on Windows Vista 64-bit.
 If you're having trouble running the right Java, try specifying an
 absolute `java.exe` in `~/.emacs`:
 
-```elisp
-    (setq swank-clojure-java-path
-        "\"C:/Program Files/Java/XXXXX/java.exe\"")
+```lisp
+(setq swank-clojure-java-path
+  "\"C:/Program Files/Java/XXXXX/java.exe\"")
 ```
 
 Inno Setup Source
